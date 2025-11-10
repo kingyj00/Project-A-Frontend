@@ -40,7 +40,7 @@ export default function SuccessPage() {
 
   return (
     <main style={{ padding: 24 }}>
-      <h1>🎉 결제가 완료되었습니다!</h1>
+      <h1>! 결제가 완료되었습니다 !</h1>
       <p>주문번호: {searchParams.get("orderId")}</p>
       <p>결제 금액: {Number(searchParams.get("amount")).toLocaleString()}원</p>
       <p>paymentKey: {searchParams.get("paymentKey")}</p>
