@@ -23,7 +23,7 @@ export default function CheckoutPage() {
       setWidgets(_widgets);
 
       // 3️⃣ 결제 금액 / UI 구성
-      await _widgets.setAmount({ currency: "KRW", value: 50000 }); // 금액 설정
+      await _widgets.setAmount({ currency: "KRW", value: 7 }); // 금액 설정
       await _widgets.renderPaymentMethods({ selector: "#payment-method" }); // 결제수단 UI
       await _widgets.renderAgreement({ selector: "#agreement" }); // 약관동의 UI
 
@@ -38,12 +38,19 @@ export default function CheckoutPage() {
   async function handlePayment() {
     if (!widgets) return;
 
-    await widgets.requestPayment({
-      orderId: "ORDER_001", // 주문번호 (백엔드에서도 검증용으로 사용)
-      orderName: "테스트 결제", // 결제 항목 이름
-      successUrl: window.location.origin + "/success", // 결제 성공 후 이동
-      failUrl: window.location.origin + "/fail", // 결제 실패 시 이동
-    });
+await widgets.requestPayment({
+  method: "CARD", // 강제로 카드 결제 모드로 지정
+  orderId: "order-test",
+  orderName: "테스트 상품 결제",
+  successUrl: window.location.origin + "/success",
+  failUrl: window.location.origin + "/fail",
+  customerEmail: "customer123@gmail.com",
+  customerName: "KINGYJ",
+  customerMobilePhone: "01012341234",
+  //  결제 테스트 환경 명시
+  flowMode: "DIALOG", // 결제창이 자동완료 대신 팝업 형태로 뜸
+  easyPay: null // 간편결제(토스페이 등) 비활성화
+});
   }
 
   // 실제 화면(UI)
