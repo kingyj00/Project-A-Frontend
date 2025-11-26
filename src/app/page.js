@@ -1,63 +1,53 @@
-"use client";
+import Link from "next/link";
 
-import { useEffect, useState } from "react";
-import { loadTossPayments } from "@tosspayments/tosspayments-sdk";
-
-const clientKey = "test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm";
-const customerKey = "SBxrz80rBtb6ZRTvVpZC-";
-
-export default function CheckoutPage() {
-  const [widgets, setWidgets] = useState(null);
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    async function initToss() {
-      const tossPayments = await loadTossPayments(clientKey);
-      const _widgets = tossPayments.widgets({ customerKey });
-      setWidgets(_widgets);
-
-      await _widgets.setAmount({ currency: "KRW", value: 7 });
-      await _widgets.renderPaymentMethods({ selector: "#payment-method" });
-      await _widgets.renderAgreement({ selector: "#agreement" });
-
-      setReady(true);
-    }
-    initToss();
-  }, []);
-
-  async function handlePayment() {
-    if (!widgets) return;
-
-    await widgets.requestPayment({
-      method: "CARD",
-      orderId: "order-test",
-      orderName: "테스트 상품 결제",
-      successUrl: `${window.location.origin}/success`,
-      failUrl: `${window.location.origin}/fail`,
-      customerEmail: "customer123@gmail.com",
-      customerName: "KINGYJ",
-      customerMobilePhone: "01012341234",
-      flowMode: "DIALOG",
-      easyPay: null,
-    });
-  }
-
+export default function Home() {
   return (
-    <main className="p-6 min-h-screen bg-white text-black">
-      <h1 className="text-2xl font-bold mb-6">Toss 테스트 결제</h1>
+    <main className="relative w-full min-h-screen bg-white text-[#B44740]">
+      {/* Top Navigation */}
+      <header className="flex justify-between px-[72px] pt-[32px] text-[11px] tracking-[0.18em] font-semibold uppercase">
+        <span>Share Culture</span>
+        <span>
+          Food, House, Event,{" "}
+          <span className="underline">Public Transport</span>, Everything
+        </span>
+        <span>Share Life</span>
+      </header>
 
-      <div id="payment-method" className="my-4" />
-      <div id="agreement" className="my-4" />
+      {/* Main Title + Login */}
+      <section className="flex">
+        <div className="mt-[140px] ml-[90px]">
+          <h1 className="text-[112px] leading-[0.9] font-extrabold tracking-[0.04em] uppercase">
+            Life
+            <br />
+            In
+            <br />
+            Seoul
+          </h1>
+        </div>
 
-      <button
-        disabled={!ready}
-        onClick={handlePayment}
-        className={`px-6 py-3 text-white rounded-lg ${
-          ready ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-400 cursor-not-allowed"
-        }`}
-      >
-        결제하기
-      </button>
+        <div className="flex-1 relative">
+          <Link
+            href="/login"
+            className="absolute right-[96px] top-1/2 -translate-y-1/2 flex flex-col items-center text-[14px] tracking-[0.35em] font-semibold uppercase"
+          >
+            <span>L</span>
+            <span>O</span>
+            <span>G</span>
+            <span className="mt-[12px]">I</span>
+            <span>N</span>
+            <div className="mt-[18px] text-[28px]">→</div>
+          </Link>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="absolute bottom-[90px] left-0 right-0">
+        <div className="mx-[72px] border-t-[2px] border-[#B44740]" />
+        <p className="mt-[8px] text-center text-[11px] tracking-[0.16em] font-semibold uppercase text-[#B44740]">
+          Community service that shares and shares everything together, including culture,
+          transportation, and food in Seoul.
+        </p>
+      </footer>
     </main>
   );
 }
