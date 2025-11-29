@@ -1,51 +1,49 @@
 export default function Home() {
   return (
-    <main className="relative w-full min-h-screen bg-white text-[#B44740] font-[Arial]">
-      {/* ▣ TOP TEXT NAVIGATION (NO TOP BORDER) */}
-      <header className="w-full flex justify-between items-center px-[60px] pt-[28px] text-[14px] uppercase font-extrabold tracking-[0.12em]">
+    <main className="min-h-screen flex flex-col bg-white text-[#B44740] font-[Arial]">
+      {/* 상단 네비게이션 - 선 없음 */}
+      <header className="flex justify-between items-center px-16 pt-8 text-xs uppercase font-extrabold tracking-[0.2em]">
         <span>SHARE CULTURE</span>
-
-        <span className="text-center font-extrabold">
-          Food, House, Event,&nbsp;
-          <span className="underline">Public Transport</span>, Everything
+        <span className="text-center">
+          Food, House, Event, <span className="underline">Public Transport</span>, Everything
         </span>
-
         <span>SHARE LIFE</span>
       </header>
 
-      {/* ▣ MAIN TITLE — PERFECT CENTERED */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-[300px] -translate-y-[180px] leading-[1] text-center">
-        <h1 className="text-[140px] font-extrabold uppercase leading-[0.9]">
-          LIFE <br />
-          IN <br />
-          SEOUL
-        </h1>
-      </div>
-
-      {/* ▣ LOGIN — VERTICAL TEXT WITH ARROW ON RIGHT */}
-      <div className="absolute top-1/2 right-[90px] -translate-y-[120px] text-[22px] tracking-[0.35em] uppercase font-extrabold flex flex-row items-start">
-        {/* vertical letters */}
-        <div className="flex flex-col items-center mr-[20px]">
-          <span>L</span>
-          <span>O</span>
-          <span>G</span>
-          <span>I</span>
-          <span>N</span>
+      {/* 가운데 메인 영역 */}
+      <section className="flex flex-1 items-center justify-center px-16">
+        {/* 가운데 정렬된 메인 로고 */}
+        <div className="flex flex-col items-center">
+          <h1 className="text-[120px] leading-[0.9] font-extrabold uppercase text-center">
+            LIFE
+            <br />
+            IN
+            <br />
+            SEOUL
+          </h1>
         </div>
 
-        {/* arrow (same horizontal position as PNG) */}
-        <div className="text-[48px] leading-none mt-[40px]">→</div>
-      </div>
+        {/* 오른쪽 LOGIN + 옆에 화살표 */}
+        <div className="ml-24 flex items-center">
+          <div className="flex flex-col items-center text-[18px] tracking-[0.35em] uppercase font-extrabold">
+            <span>L</span>
+            <span>O</span>
+            <span>G</span>
+            <span>I</span>
+            <span>N</span>
+          </div>
+          <span className="ml-4 text-[40px] font-extrabold">→</span>
+        </div>
+      </section>
 
-      {/* ▣ BOTTOM SECTION */}
-      <div className="absolute bottom-[120px] left-1/2 -translate-x-1/2 w-full flex flex-col items-center">
-        <p className="text-[14px] tracking-[0.15em] font-semibold mb-[6px] text-center w-[90%]">
-          Community service that shares and shares everything together, including
-          culture, transportation, and food in Seoul.
+      {/* 하단 문구 + 그 아래 선 */}
+      <footer className="px-16 pb-16">
+        <p className="text-[12px] tracking-[0.15em] font-semibold text-center mb-3">
+          Community service that shares and shares everything together, including culture,
+          transportation, and food in Seoul.
         </p>
-
-        <div className="w-[92%] border-t-[3px] border-[#B44740]" />
-      </div>
+        <div className="border-t-2 border-[#B44740]" />
+      </footer>
     </main>
   );
 }
