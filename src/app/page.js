@@ -19,13 +19,29 @@ export default function Home() {
 
       {/* 메인 타이틀 */}
       <div className="absolute left-[424px] top-[166px] w-[592px] h-[488px] text-[150px] leading-[1] font-normal">
-        LIFE<br/>IN<br/>SEOUL
+        LIFE<br />IN<br />SEOUL
       </div>
 
-      {/* LOGIN (세로) */}
+      {/* LOGIN (세로) + ▼ 아이콘 */}
       <div className="absolute left-[1218px] top-[300px] text-[36px] text-center font-normal leading-[1.4]">
-        L<br/>O<br/>G<br/>I<br/>N
+        L<br />O<br />G<br />I<br />N
       </div>
+
+      {/* ▼ SVG 아이콘 (세로 LOGIN 오른쪽에 배치) */}
+      <svg
+        className="absolute left-[1270px] top-[360px]"
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7 10l5 5 5-5"
+          stroke="#C04040"
+          strokeWidth="2"
+          fill="none"
+          strokeLinecap="round"
+        />
+      </svg>
 
       {/* 하단 문구 */}
       <div className="absolute left-[213px] top-[766px] w-[1000px] text-[16px] font-normal">
