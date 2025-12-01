@@ -22,26 +22,28 @@ export default function Home() {
         LIFE<br />IN<br />SEOUL
       </div>
 
-      {/* LOGIN (세로) + ▼ 아이콘 */}
+      {/* LOGIN (세로 텍스트) */}
       <div className="absolute left-[1218px] top-[300px] text-[36px] text-center font-normal leading-[1.4]">
         L<br />O<br />G<br />I<br />N
       </div>
 
-      {/* ▼ SVG 아이콘 (세로 LOGIN 오른쪽에 배치) */}
-      <svg
-        className="absolute left-[1270px] top-[360px]"
-        width="14"
-        height="14"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M7 10l5 5 5-5"
-          stroke="#C04040"
-          strokeWidth="2"
-          fill="none"
-          strokeLinecap="round"
-        />
-      </svg>
+      {/* ──▼ 스타일 화살표 (LOGIN 가운데 정렬) */}
+      {/* LOGIN 세로 텍스트 높이가 약 5줄 → center는 top + 약 36px * 2.5 ≈ 350~360px */}
+      <div className="absolute left-[1270px] top-[362px] flex items-center">
+        {/* 가로선 */}
+        <div className="w-[40px] border-t-[3px] border-[#C04040] mr-[4px]"></div>
+
+        {/* 삼각형 ▼ */}
+        <svg width="18" height="18" viewBox="0 0 24 24">
+          <path
+            d="M7 10l5 5 5-5"
+            stroke="#C04040"
+            strokeWidth="3"
+            fill="none"
+            strokeLinecap="round"
+          />
+        </svg>
+      </div>
 
       {/* 하단 문구 */}
       <div className="absolute left-[213px] top-[766px] w-[1000px] text-[16px] font-normal">
