@@ -1,58 +1,82 @@
-export default function Home() {
+import React from "react";
+import LIFEInSeoul from "./LIFE-IN-SEOUL.png";
+import line1 from "./line-1.svg";
+import line2 from "./line-2.svg";
+
+export default function Page() {
   return (
-    <main className="relative w-[1440px] h-[1600px] bg-white text-[#C04040] font-['Archivo_Black'] overflow-hidden mx-auto">
-      {/* 상단 라인 */}
-      <div className="absolute left-[55px] top-[55px] w-[1330px] border-t-[3px] border-[#C04040]" />
+    <div className="bg-[url(/rectangle-1.png)] bg-[100%_100%] w-full min-w-[1440px] min-h-[1600px] relative">
+      {/* HEADER */}
+      <header className="absolute top-[52px] left-[55px] right-[55px]">
+        <img
+          className="w-[1330px] h-[3px]"
+          alt=""
+          src={line1}
+        />
 
-      {/* 상단 네비 */}
-      <div className="absolute left-[55px] top-[69px] text-[20px] font-normal">
-        SHARE CULTURE
-      </div>
+        <nav className="flex justify-between items-start mt-[17px]">
+          <h2 className="font-normal text-[#c03f3f] text-xl whitespace-nowrap">
+            SHARE CULTURE
+          </h2>
 
-      <div className="absolute left-[452px] top-[69px] text-[20px] font-normal">
-        Food, House, Event, Public Transper, Everything
-      </div>
+          <p className="font-normal text-[#c03f3f] text-xl whitespace-nowrap">
+            Food, House, Event, Public Transper, Everything
+          </p>
 
-      <div className="absolute left-[1253px] top-[69px] text-[20px] font-normal">
-        SHARE LIFE
-      </div>
+          <h2 className="font-normal text-[#c03f3f] text-xl whitespace-nowrap">
+            SHARE LIFE
+          </h2>
+        </nav>
+      </header>
 
-      {/* 메인 타이틀 */}
-      <div className="absolute left-[424px] top-[166px] w-[592px] h-[488px] text-[150px] leading-[1] font-normal">
-        LIFE<br />IN<br />SEOUL
-      </div>
+      {/* MAIN IMAGE */}
+      <main className="absolute top-[195px] left-[430px] w-[557px] h-[431px]">
+        <img
+          className="w-full h-full"
+          alt="Life IN SEOUL - Community service platform"
+          src={LIFEInSeoul}
+        />
+      </main>
 
-      {/* LOGIN (세로 텍스트) */}
-      <div className="absolute left-[1218px] top-[300px] text-[36px] text-center font-normal leading-[1.4]">
-        L<br />O<br />G<br />I<br />N
-      </div>
+      {/* LOGIN */}
+      <aside
+        className="absolute top-[300px] left-[1218px] w-[17px]"
+        aria-label="Login navigation"
+      >
+        <button
+          className="font-normal text-[#c03f3f] text-4xl text-center leading-[normal] cursor-pointer hover:opacity-80 transition-opacity"
+        >
+          L<br />O<br />G<br />I<br />N
+        </button>
+      </aside>
 
-      {/* ──▼ 스타일 화살표 (LOGIN 가운데 정렬) */}
-      {/* LOGIN 세로 텍스트 높이가 약 5줄 → center는 top + 약 36px * 2.5 ≈ 350~360px */}
-      <div className="absolute left-[1270px] top-[362px] flex items-center">
-        {/* 가로선 */}
-        <div className="w-[40px] border-t-[3px] border-[#C04040] mr-[4px]"></div>
-
-        {/* 삼각형 ▼ */}
-        <svg width="18" height="18" viewBox="0 0 24 24">
+      {/* ──▼ 화살표 */}
+      <div className="absolute top-[365px] left-[1280px] flex items-center">
+        <div className="w-[60px] border-t-[4px] border-[#C03F3F] mr-[6px]" />
+        <svg width="24" height="24" viewBox="0 0 24 24">
           <path
             d="M7 10l5 5 5-5"
-            stroke="#C04040"
-            strokeWidth="3"
+            stroke="#C03F3F"
+            strokeWidth="4"
             fill="none"
             strokeLinecap="round"
           />
         </svg>
       </div>
 
-      {/* 하단 문구 */}
-      <div className="absolute left-[213px] top-[766px] w-[1000px] text-[16px] font-normal">
-        Community service that shares and shares everything together, including culture,
-        transportation, and food in Seoul.
-      </div>
+      {/* FOOTER */}
+      <footer className="absolute top-[766px] left-[55px] right-[55px]">
+        <img
+          className="absolute top-[31px] left-0 w-[1330px] h-[3px]"
+          alt=""
+          src={line2}
+        />
 
-      {/* 하단 라인 */}
-      <div className="absolute left-[55px] top-[800px] w-[1330px] border-t-[3px] border-[#C04040]" />
-    </main>
+        <p className="absolute top-0 left-[158px] font-normal text-[#c03f3f] text-base whitespace-nowrap">
+          Community service that shares and shares everything together,
+          including culture, transportation, and food in Seoul.
+        </p>
+      </footer>
+    </div>
   );
 }
